@@ -1,0 +1,9 @@
+.venv/
+.idea/
+__pycach__/
+migrations/
+old_scrapers_
+
+local_*
+chromedriver.exe
+db.sqlite3

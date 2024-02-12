@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ book.image_url }}" alt="{{ book.title }}" class="img-fluid" width="300px">
+            </div>
+            <div class="col-md-6">
+                <h1>{{ book.title }}</h1>
+                <h3>{{ book.author }}</h3>
+                <hr>
+                <p>{{ book.description|safe }}</p>
+                <hr>
+                <h6>
+                    <strong>Genres:</strong>
+                    {% for genre in book.genres.all %}
+                        <a href="{{ genre.url }}" target="_blank"><span class="badge bg-secondary my-1 p-2">{{ genre.name }}</span></a>
+                    {% endfor %}
+                </h6>
+                <p><small>{{ book.pages }} pages</small></p>
+                <p><small>{{ book.stars }} / 5 point</small></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

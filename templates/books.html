@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}search books{% endblock %}
+
+{% block content %}
+    <section id="search">
+        <div class="mb-3">
+            <label for="search-bar" class="form-label">Search</label>
+            <input type="search" class="form-control" id="search-bar" placeholder="Search by the book/author name">
+            <div class="invalid-feedback">Please enter a search query.</div>
+        </div>
+        <button id="search-btn" class="btn btn-primary">Search</button>
+        <div id="status" style="display: none;">Scraping data...</div>
+    </section>
+    <hr>
+    <div class="container" id="results">
+        <h4 id="results-number">No result yet...</h4>
+        <div id="content"></div>
+        <nav aria-label="Page navigation example" id="pagination"></nav>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/scrape.js' %}"></script>
+{% endblock %}
